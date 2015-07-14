@@ -1,0 +1,15 @@
+framework:
+  secret: verysecretsecret
+  router: { resource: "%kernel.root_dir%/config/routing.yml" }
+  form: true
+  csrf_protection: true
+  session: ~
+  default_locale: en
+  translator: { fallback: en }
+  profiler: { only_exceptions: false } 
+  
+comsolit_imasys_message_sender:
+    user: "000000000"
+    pw: "xxxx"
+    apiurl: "https://[apiUrl]"
+    originator: "comsolit AG"
