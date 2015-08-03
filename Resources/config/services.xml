@@ -11,7 +11,16 @@
             <argument>%comsolit_imasys_message_sender.apiurl%</argument>
             <argument>%comsolit_imasys_message_sender.originator%</argument>
         </service>
+
+        <service id="comsolit_imasys_message_sender.data_collector" class="Comsolit\ImasysMessageSenderBundle\DataCollector\ImasysDataCollector" public="true">
+            <tag name="data_collector" template="ComsolitImasysMessageSenderBundle:Collector:imasys_message_sender.html.twig" id="imasys_message_sender" />
+        </service>
+
+        <service id="comsolit_imasys_message_sender.twig_extension"
+                 class="Comsolit\ImasysMessageSenderBundle\Twig\Extension\ImasysMessageSenderTwigExtension"
+                 public="false">
+            <tag name="twig.extension" />
+        </service>
     </services>
 
 </container>
-
