@@ -4,3 +4,4 @@ comsolit_imasys_message_sender:
       pw: "secret"
       apiurl: "https://127.0.0.1"
       originator: "comsolitAG"
+      disable_delivery: false
