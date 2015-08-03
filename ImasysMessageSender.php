@@ -19,6 +19,8 @@ class ImasysMessageSender
 
     private $apiUrl;
 
+    private $collector;
+
     private $deliveryDisabled;
 
     public function __construct($user, $pw, $apiUrl, $originator, $deliveryDisabled)
@@ -27,6 +29,12 @@ class ImasysMessageSender
         $this->apiUrl = $apiUrl;
         $this->originator = $originator;
         $this->deliveryDisabled = $deliveryDisabled;
+    }
+
+    public function setCollector(ImasysDataCollector $collector)
+    {
+        $collector->setDeliveryDisabled($this->deliveryDisabled);
+        $this->collector = $collector;
     }
 
     public function sendMessage($message, $address)
@@ -45,6 +53,9 @@ class ImasysMessageSender
             $response = DeliveryDisabledResponse::parseResponse(new CurlResponse());
         } else {
             $response = $this->connection->send($request);
+        }
+        if ($this->collector instanceof ImasysDataCollector) {
+            $this->collector->collectHack($request, $response);
         }
 
         return $response;

@@ -11,6 +11,9 @@
             <argument>%comsolit_imasys_message_sender.apiurl%</argument>
             <argument>%comsolit_imasys_message_sender.originator%</argument>
             <argument>%comsolit_imasys_message_sender.disable_delivery%</argument>
+            <call method="setCollector">
+                <argument type="service" id="comsolit_imasys_message_sender.data_collector" />
+            </call>
         </service>
 
         <service id="comsolit_imasys_message_sender.data_collector" class="Comsolit\ImasysMessageSenderBundle\DataCollector\ImasysDataCollector" public="true">
