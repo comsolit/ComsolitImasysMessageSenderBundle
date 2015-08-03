@@ -10,6 +10,7 @@
             <argument>%comsolit_imasys_message_sender.pw%</argument>
             <argument>%comsolit_imasys_message_sender.apiurl%</argument>
             <argument>%comsolit_imasys_message_sender.originator%</argument>
+            <argument>%comsolit_imasys_message_sender.disable_delivery%</argument>
         </service>
 
         <service id="comsolit_imasys_message_sender.data_collector" class="Comsolit\ImasysMessageSenderBundle\DataCollector\ImasysDataCollector" public="true">
