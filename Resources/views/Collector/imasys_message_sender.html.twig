@@ -2,11 +2,12 @@
 
 {% block toolbar %}
   {% set icon %}
-    <span class="icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAcCAQAAADVGmdYAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQffAxkBCDStonIVAAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAHpJREFUOMtj3PWfgXRAuqZd/5nIsIdhVBPFmgqIjCuYOrJsYtz1fxuUOYER2TQID8afwIiQ8YIkI4TzCv5D2AgaWSuExJKMIDbA7EEVhQEWXJ6FKUY4D48m7HYU/EcWZ8JlE6qfMELPDcUJuEMPxvYazYTDWRMjOcUyAEswO+VjeQQaAAAAAElFTkSuQmCC" alt=""/></span>
-    <span class="sf-toolbar-status">
-      {{ collector.apiCalls | length }}
+    <span class="icon">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAcCAMAAACwLaQWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////AAAAv7+/gICAYGBgQEBAn5+fz8/Pr6+vMDAwj4+P39/fICAgEBAQcHBw7+/vUFBQhbrzmwAAAHxJREFUeNq8kUsOwyAMBXn+AiFJ73/aQgKqlU1X7SyQGcuywQlP0nUqD3SaSpHaDaUI/d545bwFYw2tj6e+jEBGPpfdbkMwK338lwtW1QEhMkX2ZTibqvhhn14Vwm0/Q/fNx+VPL/1ihCMy9wVI/4G4QfRaepjCZUZvAQYA57oC4YRkObMAAAAASUVORK5CYII=" />
     </span>
-    api calls
+    <span class="sf-toolbar-status">
+      {{ collector.apiCalls | length }} api calls
+    </span>
   {% endset %}
   {% set text %}
     <div class="sf-toolbar-info-piece">
@@ -27,6 +28,9 @@
 
 {% block menu %}
   <span class="label">
+    <span class="icon">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAgCAMAAADHYLP9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////AAAAv7+/gICAj4+PQEBAICAg39/fr6+vEBAQcHBwYGBg7+/vn5+fz8/PMDAwUFBQOfDCeQAAAIhJREFUeNrMkmsOxCAIhB0RER+19z9t6e7arfUCnT+QL2HCEBxWuW9J/qP4Y0yzijFys/wLmZQzQaT6Z4QYLFlWbYNlBLcFalIL2mBtY0RWcM15zIqyN6cUVS4/CZU6OFW677JrTsVs72yTc9a/9VZPVvysMH4D6Gl//AtguRZmZ10Y+tUdAgwA2c4D3xivLtUAAAAASUVORK5CYII="/>
+    </span>
     <strong>IMASYS MESSAGE SENDER</strong>
   </span>
 {% endblock %}
