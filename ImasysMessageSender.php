@@ -13,20 +13,17 @@ use Comsolit\ImasysPhp\Curl\Response as CurlResponse;
 class ImasysMessageSender
 {
 
+    private $connection;
+
     private $originator;
-
-    private $credentials;
-
-    private $apiUrl;
 
     private $collector;
 
     private $deliveryDisabled;
 
-    public function __construct($user, $pw, $apiUrl, $originator, $deliveryDisabled)
+    public function __construct($originator, $deliveryDisabled, Connection $connection)
     {
-        $this->credentials = new Credentials($user, $pw);
-        $this->apiUrl = $apiUrl;
+        $this->connection = $connection;
         $this->originator = $originator;
         $this->deliveryDisabled = $deliveryDisabled;
     }
@@ -39,9 +36,6 @@ class ImasysMessageSender
 
     public function sendMessage($message, $address)
     {
-        $portalServers = PortalServers::fetchPortalServers($this->apiUrl, $this->credentials);
-
-        $this->connection = new Connection($this->credentials, $portalServers);
         $sendMessageRequest = new SendMessageRequest($message, $address, $this->originator);
 
         return $this->send($sendMessageRequest);
