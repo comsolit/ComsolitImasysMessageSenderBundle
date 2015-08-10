@@ -17,6 +17,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('pw')->end()
                 ->scalarNode('apiurl')->end()
                 ->scalarNode('originator')->end()
+                ->booleanNode('disable_delivery')->end()
             ->end()
         ;
 

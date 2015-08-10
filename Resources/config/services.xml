@@ -6,12 +6,37 @@
 
     <services>
         <service id="comsolit_imasys_message_sender" class="Comsolit\ImasysMessageSenderBundle\ImasysMessageSender">
+            <argument>%comsolit_imasys_message_sender.originator%</argument>
+            <argument>%comsolit_imasys_message_sender.disable_delivery%</argument>
+            <argument type="service" id="comsolit_imasys_message_sender.connection" />
+            <call method="setCollector">
+                <argument type="service" id="comsolit_imasys_message_sender.data_collector" />
+            </call>
+        </service>
+
+        <service id="comsolit_imasys_message_sender.data_collector" class="Comsolit\ImasysMessageSenderBundle\DataCollector\ImasysDataCollector" public="true">
+            <tag name="data_collector" template="ComsolitImasysMessageSenderBundle:Collector:imasys_message_sender.html.twig" id="imasys_message_sender" />
+        </service>
+
+        <service id="comsolit_imasys_message_sender.twig_extension"
+                 class="Comsolit\ImasysMessageSenderBundle\Twig\Extension\ImasysMessageSenderTwigExtension"
+                 public="false">
+            <tag name="twig.extension" />
+        </service>
+
+        <service id="comsolit_imasys_message_sender.imasys_credentials" class="Comsolit\ImasysPhp\Credentials" public="false">
             <argument>%comsolit_imasys_message_sender.user%</argument>
             <argument>%comsolit_imasys_message_sender.pw%</argument>
+        </service>
+
+        <service id="comsolit_imasys_message_sender.imasys_connection_factory" class="Comsolit\ImasysMessageSenderBundle\ImasysConnectionFactory" public="false">
+            <argument type="service" id="comsolit_imasys_message_sender.imasys_credentials" />
             <argument>%comsolit_imasys_message_sender.apiurl%</argument>
-            <argument>%comsolit_imasys_message_sender.originator%</argument>
+        </service>
+
+        <service id="comsolit_imasys_message_sender.connection" class="Comsolit\ImasysPhp\Connection" public="false">
+            <factory service="comsolit_imasys_message_sender.imasys_connection_factory" method="buildConnection" />
         </service>
     </services>
 
 </container>
-

@@ -14,7 +14,6 @@ use Symfony\Component\Config\Definition\Processor;
  */
 class ComsolitImasysMessageSenderExtension extends Extension
 {
-
     /**
      * {@inheritdoc}
      */
@@ -27,7 +26,7 @@ class ComsolitImasysMessageSenderExtension extends Extension
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $config);
 
-        foreach (array('user', 'pw', 'apiurl', 'originator') as $attribute) {
+        foreach (['user', 'pw', 'apiurl', 'originator', 'disable_delivery'] as $attribute) {
             $container->setParameter('comsolit_imasys_message_sender.'.$attribute, $config[$attribute]);
         }
     }

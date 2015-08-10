@@ -1,0 +1,70 @@
+{% extends 'WebProfilerBundle:Profiler:layout.html.twig' %}
+
+{% block toolbar %}
+  {% set icon %}
+    <span class="icon">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAcCAMAAACwLaQWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////AAAAv7+/gICAYGBgQEBAn5+fz8/Pr6+vMDAwj4+P39/fICAgEBAQcHBw7+/vUFBQhbrzmwAAAHxJREFUeNq8kUsOwyAMBXn+AiFJ73/aQgKqlU1X7SyQGcuywQlP0nUqD3SaSpHaDaUI/d545bwFYw2tj6e+jEBGPpfdbkMwK338lwtW1QEhMkX2ZTibqvhhn14Vwm0/Q/fNx+VPL/1ihCMy9wVI/4G4QfRaepjCZUZvAQYA57oC4YRkObMAAAAASUVORK5CYII=" />
+    </span>
+    <span class="sf-toolbar-status">
+      {{ collector.apiCalls | length }} api calls
+    </span>
+  {% endset %}
+  {% set text %}
+    <div class="sf-toolbar-info-piece">
+      {% if collector.deliveryDisabled == true %}
+        Delivery Disabled
+      {% else %}
+        Delivery Enabled
+      {% endif %}
+    </div>
+  {% endset %}
+
+  {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { 'link': true }) }}
+{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+  <span class="label">
+    <span class="icon">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAgCAMAAADHYLP9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRF////AAAAv7+/gICAj4+PQEBAICAg39/fr6+vEBAQcHBwYGBg7+/vn5+fz8/PMDAwUFBQOfDCeQAAAIhJREFUeNrMkmsOxCAIhB0RER+19z9t6e7arfUCnT+QL2HCEBxWuW9J/qP4Y0yzijFys/wLmZQzQaT6Z4QYLFlWbYNlBLcFalIL2mBtY0RWcM15zIqyN6cUVS4/CZU6OFW677JrTsVs72yTc9a/9VZPVvysMH4D6Gl//AtguRZmZ10Y+tUdAgwA2c4D3xivLtUAAAAASUVORK5CYII="/>
+    </span>
+    <strong>IMASYS MESSAGE SENDER</strong>
+  </span>
+{% endblock %}
+
+{% block panel %}
+  {% if collector.apiCalls is empty %}
+    <span>No requests</span>
+  {% else %}
+    {% for apiCall in collector.apiCalls %}
+      <h2>{{ class(apiCall.request) }}</h2>
+      <table>
+        <tbody>
+          {% for key,value in apiCall.request.debugData %}
+            <tr>
+              <th>{{ key }}</th>
+              <td>{{ value }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h2>{{ class(apiCall.response) }}</h2>
+      <table>
+        <tbody>
+          {% for key,value in apiCall.response.debugData %}
+            <tr>
+              <th>{{ key }}</th>
+              <td>{{ value }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <hr />
+    {% endfor %}
+  {% endif %}
+{% endblock %}
