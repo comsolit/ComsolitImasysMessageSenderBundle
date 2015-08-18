@@ -14,7 +14,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('user')->end()
-                ->scalarNode('pw')->end()
+                ->scalarNode('password')->end()
                 ->scalarNode('apiurl')->end()
                 ->scalarNode('originator')->end()
                 ->booleanNode('disable_delivery')->end()

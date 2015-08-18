@@ -26,7 +26,7 @@
 
         <service id="comsolit_imasys_message_sender.imasys_credentials" class="Comsolit\ImasysPhp\Credentials" public="false">
             <argument>%comsolit_imasys_message_sender.user%</argument>
-            <argument>%comsolit_imasys_message_sender.pw%</argument>
+            <argument>%comsolit_imasys_message_sender.password%</argument>
         </service>
 
         <service id="comsolit_imasys_message_sender.imasys_connection_factory" class="Comsolit\ImasysMessageSenderBundle\ImasysConnectionFactory" public="false">

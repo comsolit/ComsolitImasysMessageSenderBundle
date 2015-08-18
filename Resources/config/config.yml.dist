@@ -1,7 +1,7 @@
 # app/config/config.yml
 comsolit_imasys_message_sender:
       user: "123"
-      pw: "secret"
+      password: "secret"
       apiurl: "https://127.0.0.1"
       originator: "comsolitAG"
       disable_delivery: false
