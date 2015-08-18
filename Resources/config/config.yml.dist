@@ -2,6 +2,6 @@
 comsolit_imasys_message_sender:
       user: "123"
       password: "secret"
-      apiurl: "https://127.0.0.1"
+      portal_list_server_adress: "https://127.0.0.1"
       originator: "comsolitAG"
       disable_delivery: false

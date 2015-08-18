@@ -8,20 +8,24 @@ use Comsolit\ImasysPhp\Connection;
 class ImasysConnectionFactory
 {
 
-    private $apiUrl;
+    private $portalListServerAdress;
 
     private $credentials;
 
-    public function __construct(Credentials $credentials, $apiUrl)
+    public function __construct(Credentials $credentials, $portalListServerAdress)
     {
-        $this->apiUrl      = $apiUrl;
+        $this->portalListServerAdress = $portalListServerAdress;
         $this->credentials = $credentials;
     }
 
     public function buildConnection()
     {
-        $portalServers = PortalServers::fetchPortalServers($this->apiUrl, $this->credentials);
+        $portalServers = PortalServers::fetchPortalServers(
+            $this->portalListServerAdress,
+            $this->credentials
+        );
 
         return new Connection($this->credentials, $portalServers);
     }
+
 }

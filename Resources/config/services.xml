@@ -31,7 +31,7 @@
 
         <service id="comsolit_imasys_message_sender.imasys_connection_factory" class="Comsolit\ImasysMessageSenderBundle\ImasysConnectionFactory" public="false">
             <argument type="service" id="comsolit_imasys_message_sender.imasys_credentials" />
-            <argument>%comsolit_imasys_message_sender.apiurl%</argument>
+            <argument>%comsolit_imasys_message_sender.portal_list_server_adress%</argument>
         </service>
 
         <service id="comsolit_imasys_message_sender.connection" class="Comsolit\ImasysPhp\Connection" public="false">

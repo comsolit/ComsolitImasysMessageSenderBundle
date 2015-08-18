@@ -11,6 +11,6 @@ framework:
 comsolit_imasys_message_sender:
     user: "000000000"
     password: "xxxx"
-    apiurl: "https://[apiUrl]"
+    portal_list_server_adress: "https://[portal_list_server_adress]"
     originator: "comsolit AG"
     disable_delivery: false
