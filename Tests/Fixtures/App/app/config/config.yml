@@ -12,5 +12,5 @@ comsolit_imasys_message_sender:
     user: "000000000"
     password: "xxxx"
     portal_list_server_adress: "https://[portal_list_server_adress]"
-    originator: "comsolit AG"
+    originator: "ComsolitImasysMessageSenderBundle"
     disable_delivery: false

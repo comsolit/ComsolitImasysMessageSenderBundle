@@ -3,5 +3,5 @@ comsolit_imasys_message_sender:
       user: "123"
       password: "secret"
       portal_list_server_adress: "https://127.0.0.1"
-      originator: "comsolitAG"
+      originator: "ComsolitImasysMessageSenderBundle"
       disable_delivery: false
