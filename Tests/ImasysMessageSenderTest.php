@@ -3,6 +3,7 @@
 namespace Comsolit\ImasysMessengerBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Comsolit\ImasysMessageSenderBundle\ImasysMessageSender;
 
 class ImasysMessageSenderTest extends WebTestCase
 {
@@ -12,6 +13,6 @@ class ImasysMessageSenderTest extends WebTestCase
         $kernel->boot();
         $container = $kernel->getContainer();
         $imasysMessenger = $container->get('comsolit_imasys_message_sender');
-        var_dump($imasysMessenger); die();
+        $this->assertEquals(true, $imasysMessenger instanceof ImasysMessageSender);
     }
 }
