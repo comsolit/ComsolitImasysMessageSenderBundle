@@ -15,6 +15,7 @@
         </service>
 
         <service id="comsolit_imasys_message_sender.data_collector" class="Comsolit\ImasysMessageSenderBundle\DataCollector\ImasysDataCollector" public="true">
+            <argument>%comsolit_imasys_message_sender.disable_delivery%</argument>
             <tag name="data_collector" template="ComsolitImasysMessageSenderBundle:Collector:imasys_message_sender.html.twig" id="imasys_message_sender" />
         </service>
 

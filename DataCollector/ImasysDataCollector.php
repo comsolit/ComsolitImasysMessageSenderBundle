@@ -1,4 +1,5 @@
 <?php
+
 namespace Comsolit\ImasysMessageSenderBundle\DataCollector;
 
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
@@ -9,6 +10,13 @@ use Comsolit\ImasysPhp\ResponseInterface;
 
 class ImasysDataCollector extends DataCollector
 {
+    public function __construct($deliveryDisabled)
+    {
+        $this->data = [
+            'deliveryDisabled' => $deliveryDisabled,
+            'apiCalls' => []
+        ];
+    }
 
     /*
      * (non-PHPdoc)
@@ -38,11 +46,6 @@ class ImasysDataCollector extends DataCollector
     public function getApiCalls()
     {
         return $this->data['apiCalls'];
-    }
-
-    public function setDeliveryDisabled($disabled)
-    {
-        $this->data['deliveryDisabled'] = $disabled;
     }
 
     public function getDeliveryDisabled()

@@ -12,7 +12,6 @@ use Comsolit\ImasysPhp\Curl\Response as CurlResponse;
 
 class ImasysMessageSender
 {
-
     private $connection;
 
     private $originator;
@@ -30,7 +29,6 @@ class ImasysMessageSender
 
     public function setCollector(ImasysDataCollector $collector)
     {
-        $collector->setDeliveryDisabled($this->deliveryDisabled);
         $this->collector = $collector;
     }
 
