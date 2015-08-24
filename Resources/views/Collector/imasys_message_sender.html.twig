@@ -40,7 +40,7 @@
     <span>No requests</span>
   {% else %}
     {% for apiCall in collector.apiCalls %}
-      <h2>{{ class(apiCall.request) }}</h2>
+      <h2>{{ apiCall.request.type }}</h2>
       <table>
         <tbody>
           {% for key,value in apiCall.request.debugData %}
@@ -52,7 +52,7 @@
         </tbody>
       </table>
 
-      <h2>{{ class(apiCall.response) }}</h2>
+      <h2>{{ apiCall.response.type }}</h2>
       <table>
         <tbody>
           {% for key,value in apiCall.response.debugData %}

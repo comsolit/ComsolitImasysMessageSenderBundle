@@ -30,14 +30,14 @@
             <argument>%comsolit_imasys_message_sender.password%</argument>
         </service>
 
-        <service id="comsolit_imasys_message_sender.imasys_connection_factory" class="Comsolit\ImasysMessageSenderBundle\ImasysConnectionFactory" public="false">
-            <argument type="service" id="comsolit_imasys_message_sender.imasys_credentials" />
+        <service id="comsolit_imasys_message_sender.portalservers" class="Comsolit\ImasysPhp\PortalServers" public="false">
             <argument>%comsolit_imasys_message_sender.portal_list_server_adress%</argument>
+            <argument type="service" id="comsolit_imasys_message_sender.imasys_credentials" />
         </service>
 
         <service id="comsolit_imasys_message_sender.connection" class="Comsolit\ImasysPhp\Connection" public="false">
-            <factory service="comsolit_imasys_message_sender.imasys_connection_factory" method="buildConnection" />
+            <argument type="service" id="comsolit_imasys_message_sender.imasys_credentials" />
+            <argument type="service" id="comsolit_imasys_message_sender.portalservers" />
         </service>
     </services>
-
 </container>
