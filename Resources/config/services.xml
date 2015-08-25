@@ -19,12 +19,6 @@
             <tag name="data_collector" template="ComsolitImasysMessageSenderBundle:Collector:imasys_message_sender.html.twig" id="imasys_message_sender" />
         </service>
 
-        <service id="comsolit_imasys_message_sender.twig_extension"
-                 class="Comsolit\ImasysMessageSenderBundle\Twig\Extension\ImasysMessageSenderTwigExtension"
-                 public="false">
-            <tag name="twig.extension" />
-        </service>
-
         <service id="comsolit_imasys_message_sender.imasys_credentials" class="Comsolit\ImasysPhp\Credentials" public="false">
             <argument>%comsolit_imasys_message_sender.user%</argument>
             <argument>%comsolit_imasys_message_sender.password%</argument>
